@@ -109,25 +109,45 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
-    background: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 5% 6%));
+    @apply bg-background text-foreground font-sans;
+    background: radial-gradient(ellipse at top, hsl(240 10% 5%), hsl(240 10% 3.9%));
     min-height: 100vh;
   }
   
   .glass-effect {
     backdrop-filter: blur(20px);
-    background: var(--gradient-glass);
+    background: linear-gradient(145deg, hsla(240, 5%, 12%, 0.9), hsla(240, 5%, 8%, 0.95));
     border: 1px solid hsl(var(--border));
+    box-shadow: 0 8px 32px hsla(240, 10%, 3.9%, 0.7), 
+                inset 0 1px 0 hsla(255, 255%, 255%, 0.1);
   }
   
   .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, hsl(346 87% 43%), hsl(12 76% 61%));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .glow-shadow {
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 40px hsl(346 87% 43% / 0.2);
+  }
+  
+  .hover-glow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .hover-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 50px hsl(346 87% 43% / 0.3);
+  }
+  
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px hsla(240, 10%, 3.9%, 0.8);
   }
 }
