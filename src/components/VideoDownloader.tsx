@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +33,15 @@ const VideoDownloader = () => {
   const [selectedFormat, setSelectedFormat] = useState("mp4");
   const [downloads, setDownloads] = useState<DownloadItem[]>([]);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+
+  useEffect(() => {
+    // Initialize AdSense ads
+    try {
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+    } catch (err) {
+      console.error('AdSense error:', err);
+    }
+  }, []);
 
   const analyzeVideo = async () => {
     if (!url.includes('youtube.com') && !url.includes('youtu.be')) {
@@ -125,6 +134,16 @@ const VideoDownloader = () => {
           <Zap className="w-4 h-4" />
           <span>तेज़ • सुरक्षित • विश्वसनीय</span>
         </div>
+      </div>
+
+      {/* Google AdSense */}
+      <div className="animate-fade-in">
+        <ins className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-7836659036507838"
+          data-ad-slot="3845870189"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
       </div>
 
       {/* URL Input Card */}
@@ -375,6 +394,16 @@ const VideoDownloader = () => {
             </div>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Google AdSense Bottom */}
+      <div className="animate-fade-in">
+        <ins className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-7836659036507838"
+          data-ad-slot="3845870189"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
       </div>
     </div>
   );
